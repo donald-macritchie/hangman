@@ -28,6 +28,8 @@ def play_game():
     computer_choice = random.choice(words)
     print(computer_choice)
 
+    user_choice = input("Please guess a letter: ")
+
 
 def main():
     play_game()
