@@ -73,7 +73,9 @@ def play_game():
 
 
 def main():
-    play_game()
+    game_difficulty()
+    # play_game()
+    
 
 
 main()
