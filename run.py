@@ -2,6 +2,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 from hangman_words import words
 import random
+from hangman_images import hangman_lives
 
 # SCOPE = [
 #     "https://www.googleapis.com/auth/spreadsheets",
@@ -56,6 +57,8 @@ def play_game():
         if "_" not in blanks:
             game_over = True
             print("Game over")
+
+        print(hangman_lives[lives_remaining])
 
 
 def main():
