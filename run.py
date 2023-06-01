@@ -28,6 +28,7 @@ def play_game():
 
     game_over = False
     lives_remaining = 6
+    wrong_letter = []
 
     computer_choice = random.choice(words)
     print(computer_choice)
@@ -49,6 +50,9 @@ def play_game():
         print(blanks)
 
         if user_choice not in computer_choice:
+            print(f"You guessed {user_choice}, This leter is not in the word. Try again\n")
+            wrong_letter.append(user_choice)
+            print(f"Incorrect letters: {wrong_letter}")
             lives_remaining -= 1
             if lives_remaining == 0:
                 game_over = True
