@@ -50,7 +50,8 @@ def play_game():
         print(blanks)
 
         if user_choice not in computer_choice:
-            print(f"You guessed {user_choice}, This leter is not in the word. Try again\n")
+            print(f"You guessed {user_choice}, This leter is not in the word.")
+            print("Try again\n")
             wrong_letter.append(user_choice)
             print(f"Incorrect letters: {wrong_letter}")
             lives_remaining -= 1
@@ -63,6 +64,10 @@ def play_game():
             print("Game over")
 
         print(hangman_lives[lives_remaining])
+
+        if lives_remaining != 0:
+            print(f"You have {lives_remaining} lives remaining")
+
 
 
 def main():
