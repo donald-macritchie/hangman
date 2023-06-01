@@ -30,6 +30,12 @@ def play_game():
 
     user_choice = input("Please guess a letter: ")
 
+    for letter in computer_choice:
+        if user_choice == letter:
+            print("That is correct.")
+        else:
+            print("That is incorrect.")
+
 
 def main():
     play_game()
