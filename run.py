@@ -23,4 +23,9 @@ def play_game():
     print("Try to guess the word in the least amount of guesses")
     print("Dont let the man hang!\n")
 
-play_game()
+
+def main():
+    play_game()
+
+
+main()
