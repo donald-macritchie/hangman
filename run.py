@@ -28,6 +28,11 @@ def play_game():
     computer_choice = random.choice(words)
     print(computer_choice)
 
+    blanks = []
+    for letter in range(len(computer_choice)):
+        blanks += "_"
+    print(blanks)
+
     user_choice = input("Please guess a letter: ")
 
     for letter in computer_choice:
