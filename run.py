@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from hangman_words import words
 
 # SCOPE = [
 #     "https://www.googleapis.com/auth/spreadsheets",
@@ -26,6 +27,7 @@ def play_game():
 
 def main():
     play_game()
+    print(words)
 
 
 main()
