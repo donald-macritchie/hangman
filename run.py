@@ -26,6 +26,7 @@ def play_game():
     print("Dont let the man hang!\n")
 
     game_over = False
+    lives_remaining = 6
 
     computer_choice = random.choice(words)
     print(computer_choice)
@@ -35,7 +36,7 @@ def play_game():
         blanks += "_"
     print(blanks)
 
-    while game_over == False:
+    while not game_over:
         user_choice = input("Please guess a letter: ")
 
         for position in range(len(computer_choice)):
@@ -45,6 +46,12 @@ def play_game():
                 print("That is correct.")
 
         print(blanks)
+
+        if user_choice not in computer_choice:
+            lives_remaining -= 1
+            if lives_remaining == 0:
+                game_over = True
+                print("You have lost all your lives, Game Over")
 
         if "_" not in blanks:
             game_over = True
