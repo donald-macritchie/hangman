@@ -45,7 +45,7 @@ def play_game():
             letter = computer_choice[position]
             if user_choice == letter:
                 blanks[position] = letter
-                print("That is correct.")
+                print(f"You chose {user_choice}, That is correct!")
 
         print(blanks)
 
@@ -57,17 +57,17 @@ def play_game():
             lives_remaining -= 1
             if lives_remaining == 0:
                 game_over = True
-                print("You have lost all your lives, Game Over")
+                print("You have lost all your lives, Game Over\n")
+                print(f"The word you were looking for was: {computer_choice}")
 
         if "_" not in blanks:
             game_over = True
-            print("Game over")
+            print("You have guessed all the correct letter!")
 
         print(hangman_lives[lives_remaining])
 
         if lives_remaining != 0:
-            print(f"You have {lives_remaining} lives remaining")
-
+            print(f"You have {lives_remaining} lives remaining \n")
 
 
 def main():
