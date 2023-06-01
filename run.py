@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from hangman_words import words
+import random
 
 # SCOPE = [
 #     "https://www.googleapis.com/auth/spreadsheets",
@@ -24,10 +25,12 @@ def play_game():
     print("Try to guess the word in the least amount of guesses")
     print("Dont let the man hang!\n")
 
+    computer_choice = random.choice(words)
+    print(computer_choice)
+
 
 def main():
     play_game()
-    print(words)
 
 
 main()
