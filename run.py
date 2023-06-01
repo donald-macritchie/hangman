@@ -25,6 +25,8 @@ def play_game():
     print("Try to guess the word in the least amount of guesses")
     print("Dont let the man hang!\n")
 
+    game_over = False
+
     computer_choice = random.choice(words)
     print(computer_choice)
 
@@ -33,15 +35,20 @@ def play_game():
         blanks += "_"
     print(blanks)
 
-    user_choice = input("Please guess a letter: ")
+    while game_over == False:
+        user_choice = input("Please guess a letter: ")
 
-    for position in range(len(computer_choice)):
-        letter = computer_choice[position]
-        if user_choice == letter:
-            blanks[position] = letter
-            print("That is correct.")
+        for position in range(len(computer_choice)):
+            letter = computer_choice[position]
+            if user_choice == letter:
+                blanks[position] = letter
+                print("That is correct.")
 
-    print(blanks)
+        print(blanks)
+
+        if "_" not in blanks:
+            game_over = True
+            print("Game over")
 
 
 def main():
