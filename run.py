@@ -35,11 +35,13 @@ def play_game():
 
     user_choice = input("Please guess a letter: ")
 
-    for letter in computer_choice:
+    for position in range(len(computer_choice)):
+        letter = computer_choice[position]
         if user_choice == letter:
+            blanks[position] = letter
             print("That is correct.")
-        else:
-            print("That is incorrect.")
+
+    print(blanks)
 
 
 def main():
