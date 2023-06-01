@@ -3,6 +3,7 @@ from google.oauth2.service_account import Credentials
 from hangman_words import words
 import random
 from hangman_images import hangman_lives
+from difficulty import game_difficulty
 
 # SCOPE = [
 #     "https://www.googleapis.com/auth/spreadsheets",
@@ -68,6 +69,7 @@ def play_game():
 
         if lives_remaining != 0:
             print(f"You have {lives_remaining} lives remaining \n")
+
 
 
 def main():
