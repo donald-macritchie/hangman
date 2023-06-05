@@ -21,6 +21,9 @@ from difficulty import game_difficulty
 # create function to have latest scores input into google sheet
 # create function to have highest scores input into google sheet
 
+computer_choice = game_difficulty()
+print(computer_choice)
+
 def play_game():
     print("Welcome to Hangman!\n")
     print("Guess the letters to complete the word")
@@ -30,9 +33,6 @@ def play_game():
     game_over = False
     lives_remaining = 6
     wrong_letter = []
-
-    computer_choice = random.choice(words)
-    print(computer_choice)
 
     blanks = []
     for letter in range(len(computer_choice)):
@@ -71,11 +71,9 @@ def play_game():
             print(f"You have {lives_remaining} lives remaining \n")
 
 
-
 def main():
-    game_difficulty()
-    # play_game()
+    # game_difficulty()
+    play_game()
     
-
 
 main()
