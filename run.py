@@ -20,15 +20,17 @@ from difficulty import game_difficulty
 # Create function for game
 # create function to have latest scores input into google sheet
 # create function to have highest scores input into google sheet
+print("Welcome to Hangman!\n")
+print("Guess the letters to complete the word")
+print("Try to guess the word in the least amount of guesses")
+print("Dont let the man hang!\n")
+
 
 computer_choice = game_difficulty()
 print(computer_choice)
 
 def play_game():
-    print("Welcome to Hangman!\n")
-    print("Guess the letters to complete the word")
-    print("Try to guess the word in the least amount of guesses")
-    print("Dont let the man hang!\n")
+
 
     game_over = False
     lives_remaining = 6
