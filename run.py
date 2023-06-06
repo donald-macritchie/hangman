@@ -73,17 +73,26 @@ def play_game():
 
 
 def play_again():
-        continue_game = input("play again? y or n")
+    continue_game = input("play again? y or n")
     if continue_game == "y":
-        play_game(chosen_word)
+        play_game(computer_choice)
     else:
         print("game over")
+
+
+def score():
+    score = 0
+    score += 1
+    print(f"You have a score of {score}")
+    while score >= 0:
+        play_again()
 
 
 
 def main():
     # game_difficulty()
     play_game()
+    score()
     
 
 main()
