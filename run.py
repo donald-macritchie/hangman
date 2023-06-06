@@ -29,9 +29,8 @@ print("Dont let the man hang!\n")
 computer_choice = game_difficulty()
 print(computer_choice)
 
+
 def play_game():
-
-
     game_over = False
     lives_remaining = 6
     wrong_letter = []
@@ -71,6 +70,15 @@ def play_game():
 
         if lives_remaining != 0:
             print(f"You have {lives_remaining} lives remaining \n")
+
+
+def play_again():
+        continue_game = input("play again? y or n")
+    if continue_game == "y":
+        play_game(chosen_word)
+    else:
+        print("game over")
+
 
 
 def main():
