@@ -3,7 +3,6 @@ from google.oauth2.service_account import Credentials
 from hangman_words import words
 import random
 from hangman_images import hangman_lives
-from difficulty import game_difficulty
 
 # SCOPE = [
 #     "https://www.googleapis.com/auth/spreadsheets",
@@ -21,16 +20,9 @@ from difficulty import game_difficulty
 # create function to have latest scores input into google sheet
 # create function to have highest scores input into google sheet
 
-def game_difficulty():
-    print("Choose your difficulty level!\n")
-    print("EASY - Words with 4 letters or less")
-    print("MEDIUM - Words with 7 letters or less")
-    print("HARD - Words with 10 letters or less\n")
-    print("Please select a difficulty.")
-
-    user_difficulty = input("Type: 'easy', 'medium' or 'hard': \n").lower()
+def generate_word(user_difficulty):
     if user_difficulty == "easy":
-        easy_words = [word for word in words if len(word) <= 4]
+        easy_words = [word for word in words if len(word) <=4]
         computer_choice = random.choice(easy_words)
         return computer_choice
     elif user_difficulty == 'medium':
@@ -41,11 +33,23 @@ def game_difficulty():
         hard_words = [word for word in words if len(word) <= 10]
         computer_choice = random.choice(hard_words)
         return computer_choice
+
+
+def game_difficulty():
+    print("Choose your difficulty level!\n")
+    print("EASY - Words with 4 letters or less")
+    print("MEDIUM - Words with 7 letters or less")
+    print("HARD - Words with 10 letters or less\n")
+    print("Please select a difficulty.")
+
+    user_difficulty = input("Type: 'easy', 'medium' or 'hard': \n").lower()
+
     elif user_difficulty != 'easy' and 'medium' and 'hard':
         print("Invalid difficulty choice, please try again.\n")
         game_difficulty()
+    return [generate_word(user_difficulty), user_difficulty]
 
-        
+
 print("Welcome to Hangman!\n")
 print("Guess the letters to complete the word")
 print("Try to guess the word in the least amount of guesses")
