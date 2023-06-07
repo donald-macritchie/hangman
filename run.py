@@ -44,10 +44,10 @@ def game_difficulty():
 
     user_difficulty = input("Type: 'easy', 'medium' or 'hard': \n").lower()
 
-    elif user_difficulty != 'easy' and 'medium' and 'hard':
+    if user_difficulty != 'easy' and 'medium' and 'hard':
         print("Invalid difficulty choice, please try again.\n")
         game_difficulty()
-    return [generate_word(user_difficulty), user_difficulty]
+    return generate_word(user_difficulty)
 
 
 print("Welcome to Hangman!\n")
