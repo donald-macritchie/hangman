@@ -3,6 +3,7 @@ from google.oauth2.service_account import Credentials
 from hangman_words import words
 import random
 from hangman_images import hangman_lives
+# from difficulty import game_difficulty, generate_word
 
 # SCOPE = [
 #     "https://www.googleapis.com/auth/spreadsheets",
@@ -20,50 +21,24 @@ from hangman_images import hangman_lives
 # create function to have latest scores input into google sheet
 # create function to have highest scores input into google sheet
 
-def generate_word(user_difficulty):
-    if user_difficulty == "easy":
-        easy_words = [word for word in words if len(word) <=4]
-        computer_choice = random.choice(easy_words)
-        return computer_choice
-    elif user_difficulty == 'medium':
-        medium_words = [word for word in words if len(word) <= 7]
-        computer_choice = random.choice(medium_words)
-        return computer_choice
-    elif user_difficulty == 'hard':
-        hard_words = [word for word in words if len(word) <= 10]
-        computer_choice = random.choice(hard_words)
-        return computer_choice
 
 
-def game_difficulty():
-    print("Choose your difficulty level!\n")
-    print("EASY - Words with 4 letters or less")
-    print("MEDIUM - Words with 7 letters or less")
-    print("HARD - Words with 10 letters or less\n")
-    print("Please select a difficulty.")
 
-    user_difficulty = input("Type: 'easy', 'medium' or 'hard': \n").lower()
-
-    if user_difficulty != 'easy' and 'medium' and 'hard':
-        print("Invalid difficulty choice, please try again.\n")
-        game_difficulty()
-    return generate_word(user_difficulty)
+# print("Welcome to Hangman!\n")
+# print("Guess the letters to complete the word")
+# print("Try to guess the word in the least amount of guesses")
+# print("Dont let the man hang!\n")
 
 
-print("Welcome to Hangman!\n")
-print("Guess the letters to complete the word")
-print("Try to guess the word in the least amount of guesses")
-print("Dont let the man hang!\n")
-
-
-computer_choice = game_difficulty()
-print(computer_choice)
+# computer_choice = game_difficulty()
+# print(computer_choice)
 
 
 def play_game(computer_choice):
     game_over = False
     lives_remaining = 6
     wrong_letter = []
+    user_score = 0
 
     blanks = []
     for letter in range(len(computer_choice)):
@@ -100,17 +75,22 @@ def play_game(computer_choice):
 
         if lives_remaining != 0:
             print(f"You have {lives_remaining} lives remaining \n")
+            user_score += 1
+            print(f"Your score is {user_score}")
+
+
+
 
 
 def play_again():
     """
     Asks the user to play again if they complete the word
     """
-    continue_game = input("play again? y or n")
-    if continue_game == "y":
+    game_over = True
+    continue_game = input("play again y/n?: ")
+    if continue_game == 'y':
         play_game(computer_choice)
-    else:
-        print("game over")
+        game_over = False
 
 
 def score():
@@ -127,7 +107,9 @@ def score():
 def main():
     # game_difficulty()
     play_game(computer_choice)
-    score()
+    # score()
     
 
-main()
+
+# main()
+
