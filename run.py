@@ -27,15 +27,12 @@ from difficulty import game_difficulty, generate_word
 # print("Dont let the man hang!\n")
 
 
-computer_choice = game_difficulty()
-print(computer_choice)
-
-
 def play_game(computer_choice):
     game_over = False
     lives_remaining = 6
     wrong_letter = []
     user_score = 0
+    
 
     blanks = []
     for letter in range(len(computer_choice)):
@@ -43,7 +40,7 @@ def play_game(computer_choice):
     print(blanks)
 
     def correct_letters():
-            for position in range(len(computer_choice)):
+        for position in range(len(computer_choice)):
             letter = computer_choice[position]
             if user_choice == letter:
                 blanks[position] = letter
@@ -54,7 +51,7 @@ def play_game(computer_choice):
         if user_choice not in computer_choice:
             print(f"You guessed {user_choice}, This letter is not in the word.")
             print("Try again\n")
-            wrong_letters()
+            wrong_letter()
             lives_remaining -= 1
             if lives_remaining == 0:
                 game_over = True
@@ -84,7 +81,7 @@ def play_game(computer_choice):
 
 
 
-def play_agan():
+def play_again():
     """
     Asks the user to play again if they complete the word
     """
@@ -95,12 +92,12 @@ def play_agan():
         game_over = False
 
 
-def score():
+def score(user_score):
     """
     Keeps track of the user score
     """
-    score = 0
-    score += 1
+    
+    user_score += 1
     print(f"You have a score of {score}")
     while score >= 0:
         play_again()
@@ -109,8 +106,7 @@ def score():
 def main():
     # game_difficulty()
     play_game(computer_choice)
-    # score()
-    
+    score(user_score)
 
 
 if __name__ == "__main__":
@@ -120,5 +116,6 @@ if __name__ == "__main__":
     print("Dont let the man hang!\n")
     [computer_choice, difficulty] = game_difficulty()
     print(computer_choice)
+    user_score = 0
     main()
 

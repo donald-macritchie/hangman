@@ -31,5 +31,3 @@ def game_difficulty():
     return [generate_word(user_difficulty), user_difficulty]
 
 
-computer_choice = game_difficulty()
-print(computer_choice)
