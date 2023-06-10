@@ -78,8 +78,7 @@ def play_game(computer_choice):
 
         if lives_remaining != 0:
             print(f"You have {lives_remaining} lives remaining \n")
-            # user_score += 1
-            print(f"Your score is {user_score}")
+
 
 
 def main():
