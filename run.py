@@ -3,7 +3,7 @@ from google.oauth2.service_account import Credentials
 from hangman_words import words
 import random
 from hangman_images import hangman_lives
-# from difficulty import game_difficulty, generate_word
+from difficulty import game_difficulty, generate_word
 
 # SCOPE = [
 #     "https://www.googleapis.com/auth/spreadsheets",
@@ -21,17 +21,14 @@ from hangman_images import hangman_lives
 # create function to have latest scores input into google sheet
 # create function to have highest scores input into google sheet
 
-
-
-
 # print("Welcome to Hangman!\n")
 # print("Guess the letters to complete the word")
 # print("Try to guess the word in the least amount of guesses")
 # print("Dont let the man hang!\n")
 
 
-# computer_choice = game_difficulty()
-# print(computer_choice)
+computer_choice = game_difficulty()
+print(computer_choice)
 
 
 def play_game(computer_choice):
@@ -45,27 +42,34 @@ def play_game(computer_choice):
         blanks += "_"
     print(blanks)
 
-    while not game_over:
-        user_choice = input("Please guess a letter: ")
-
-        for position in range(len(computer_choice)):
+    def correct_letters():
+            for position in range(len(computer_choice)):
             letter = computer_choice[position]
             if user_choice == letter:
                 blanks[position] = letter
                 print(f"You chose {user_choice}, That is correct!")
 
-        print(blanks)
-
+    def incorrect_letter():
+        lives_remaining = 6
         if user_choice not in computer_choice:
-            print(f"You guessed {user_choice}, This leter is not in the word.")
+            print(f"You guessed {user_choice}, This letter is not in the word.")
             print("Try again\n")
-            wrong_letter.append(user_choice)
-            print(f"Incorrect letters: {wrong_letter}")
+            wrong_letters()
             lives_remaining -= 1
             if lives_remaining == 0:
                 game_over = True
                 print("You have lost all your lives, Game Over\n")
                 print(f"The word you were looking for was: {computer_choice}")
+        return computer_choice
+
+    while not game_over:
+        user_choice = input("Please guess a letter: ")
+
+        correct_letters()
+        incorrect_letter()
+
+        print(blanks)
+
 
         if "_" not in blanks:
             game_over = True
@@ -80,9 +84,7 @@ def play_game(computer_choice):
 
 
 
-
-
-def play_again():
+def play_agan():
     """
     Asks the user to play again if they complete the word
     """
@@ -111,5 +113,12 @@ def main():
     
 
 
-# main()
+if __name__ == "__main__":
+    print("Welcome to Hangman!\n")
+    print("Guess the letters to complete the word")
+    print("Try to guess the word in the least amount of guesses")
+    print("Dont let the man hang!\n")
+    [computer_choice, difficulty] = game_difficulty()
+    print(computer_choice)
+    main()
 
