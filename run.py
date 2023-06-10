@@ -17,17 +17,6 @@ from difficulty import game_difficulty, generate_word
 # SHEET = GSPREAD_CLIENT.open('hangman_scores')
 
 
-# Create function for game
-# create function to have latest scores input into google sheet
-# create function to have highest scores input into google sheet
-
-# print("Welcome to Hangman!\n")
-# print("Guess the letters to complete the word")
-# print("Try to guess the word in the least amount of guesses")
-# print("Dont let the man hang!\n")
-user_score = 0
-
-
 def hide_word(computer_choice):
     blanks = []
     for letter in range(len(computer_choice)):
@@ -67,7 +56,6 @@ def play_game(computer_choice):
     wrong_letter = []
     blanks = hide_word(computer_choice)
 
-
     while game_over is False:
         user_choice = input("Please guess a letter: ")
         checked_user_choice = check_user_choice(computer_choice,
@@ -76,7 +64,6 @@ def play_game(computer_choice):
             wrong_letter = incorrect_letter(user_choice, wrong_letter)
             lives_remaining -= 1
             game_over = check_if_game_over(lives_remaining, game_over)
-
         else:
             blanks = checked_user_choice
             print(f"You chose {user_choice}, That is correct!")
@@ -93,29 +80,6 @@ def play_game(computer_choice):
             print(f"You have {lives_remaining} lives remaining \n")
             # user_score += 1
             print(f"Your score is {user_score}")
-
-
-
-# def play_again():
-#     """
-#     Asks the user to play again if they complete the word
-#     """
-#     game_over = True
-#     continue_game = input("play again y/n?: ")
-#     if continue_game == 'y':
-#         play_game(computer_choice)
-#         game_over = False
-
-
-# def score(user_score):
-#     """
-#     Keeps track of the user score
-#     """
-    
-#     user_score += 1
-#     print(f"You have a score of {score}")
-#     while score >= 0:
-#         play_again()
 
 
 def main():
