@@ -25,48 +25,72 @@ from difficulty import game_difficulty, generate_word
 # print("Guess the letters to complete the word")
 # print("Try to guess the word in the least amount of guesses")
 # print("Dont let the man hang!\n")
+user_score = 0
+
+
+def hide_word(computer_choice):
+    blanks = []
+    for letter in range(len(computer_choice)):
+        blanks += "_"
+    return blanks
+
+
+def check_user_choice(computer_choice, user_choice, blanks):
+    if user_choice not in computer_choice:
+        return False
+    if user_choice in computer_choice:
+        for index, letter in enumerate(computer_choice):
+            if letter == user_choice:
+                blanks[index] = letter
+        return blanks
 
 
 def play_game(computer_choice):
     game_over = False
     lives_remaining = 6
     wrong_letter = []
-    user_score = 0
-    
+    blanks = hide_word(computer_choice)
 
-    blanks = []
-    for letter in range(len(computer_choice)):
-        blanks += "_"
-    print(blanks)
 
-    def correct_letters():
-        for position in range(len(computer_choice)):
-            letter = computer_choice[position]
-            if user_choice == letter:
-                blanks[position] = letter
-                print(f"You chose {user_choice}, That is correct!")
+#     def correct_letters():
+#         for position in range(len(computer_choice)):
+#             letter = computer_choice[position]
+#   #           if user_choice ==#  letter:
+#                 blanks[p# osition] = letter
+#                 pri# nt(f"You chose {user_choice}, Tha# t is correct!")
 
-    def incorrect_letter():
-        lives_remaining = 6
-        if user_choice not in computer_choice:
-            print(f"You guessed {user_choice}, This letter is not in the word.")
+#     def incorrect_letter():
+#         lives_remainin# g = 6
+#         if user_choice not in computer_choice:
+#             print(f"You guessed {user_choice}, This le# tter#  is not in the word.")
+#   #           print("Try again\n")
+#             wrong_let# ter(# )
+#             lives_remain# ing -= 1
+#             if # live# s_remaining == 0:
+#  #  #     #           game_over = True
+#    #              print("You have lost all your lives, Game Over\n")
+#                 print(f"The word you were looking for was: {computer_choice}")
+#         return computer_choice
+
+    while game_over is False:
+        user_choice = input("Please guess a letter: ")
+        checked_user_choice = check_user_choice(computer_choice, user_choice,
+        blanks)
+        if checked_user_choice is False:
+            print(f"You guessed {user_choice}, This letter is not in the word")
             print("Try again\n")
-            wrong_letter()
+            wrong_letter.append(user_choice)
+            print(f"Incorrect letter: {wrong_letter}")
             lives_remaining -= 1
             if lives_remaining == 0:
                 game_over = True
-                print("You have lost all your lives, Game Over\n")
+                print("You have lost all your lives, Game Over!\n")
                 print(f"The word you were looking for was: {computer_choice}")
-        return computer_choice
-
-    while not game_over:
-        user_choice = input("Please guess a letter: ")
-
-        correct_letters()
-        incorrect_letter()
-
+        else:
+            blanks = checked_user_choice
+            print(f"You chose {user_choice}, That is correct!")
+            
         print(blanks)
-
 
         if "_" not in blanks:
             game_over = True
@@ -76,37 +100,37 @@ def play_game(computer_choice):
 
         if lives_remaining != 0:
             print(f"You have {lives_remaining} lives remaining \n")
-            user_score += 1
+            # user_score += 1
             print(f"Your score is {user_score}")
 
 
 
-def play_again():
-    """
-    Asks the user to play again if they complete the word
-    """
-    game_over = True
-    continue_game = input("play again y/n?: ")
-    if continue_game == 'y':
-        play_game(computer_choice)
-        game_over = False
+# def play_again():
+#     """
+#     Asks the user to play again if they complete the word
+#     """
+#     game_over = True
+#     continue_game = input("play again y/n?: ")
+#     if continue_game == 'y':
+#         play_game(computer_choice)
+#         game_over = False
 
 
-def score(user_score):
-    """
-    Keeps track of the user score
-    """
+# def score(user_score):
+#     """
+#     Keeps track of the user score
+#     """
     
-    user_score += 1
-    print(f"You have a score of {score}")
-    while score >= 0:
-        play_again()
+#     user_score += 1
+#     print(f"You have a score of {score}")
+#     while score >= 0:
+#         play_again()
 
 
 def main():
     # game_difficulty()
     play_game(computer_choice)
-    score(user_score)
+    # score(user_score)
 
 
 if __name__ == "__main__":
@@ -116,6 +140,6 @@ if __name__ == "__main__":
     print("Dont let the man hang!\n")
     [computer_choice, difficulty] = game_difficulty()
     print(computer_choice)
-    user_score = 0
+    # user_score = 0
     main()
 
