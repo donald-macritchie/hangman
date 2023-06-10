@@ -45,6 +45,22 @@ def check_user_choice(computer_choice, user_choice, blanks):
         return blanks
 
 
+def incorrect_letter(user_choice, wrong_letter):
+    print(f"You guessed {user_choice}, This letter is not in the word.")
+    print("Try again\n")
+    wrong_letter.append(user_choice)
+    print(f"Incorrect letters: {wrong_letter}")
+    return wrong_letter
+   
+
+def check_if_game_over(lives_remaining, game_over):
+    if lives_remaining == 0:
+        game_over = True
+        print("You have lost all your lives, Game Over!\n")
+        print(f"The word you were looking for was: {computer_choice}")
+    return game_over
+
+
 def play_game(computer_choice):
     game_over = False
     lives_remaining = 6
@@ -52,35 +68,15 @@ def play_game(computer_choice):
     blanks = hide_word(computer_choice)
 
 
-
-
-#     def incorrect_letter():
-#         lives_remainin# g = 6
-#         if user_choice not in computer_choice:
-#             print(f"You guessed {user_choice}, This le# tter#  is not in the word.")
-#   #           print("Try again\n")
-#             wrong_let# ter(# )
-#             lives_remain# ing -= 1
-#             if # live# s_remaining == 0:
-#  #  #     #           game_over = True
-#    #              print("You have lost all your lives, Game Over\n")
-#                 print(f"The word you were looking for was: {computer_choice}")
-#         return computer_choice
-
     while game_over is False:
         user_choice = input("Please guess a letter: ")
         checked_user_choice = check_user_choice(computer_choice,
         user_choice, blanks)
         if checked_user_choice is False:
-            print(f"You guessed {user_choice}, This letter is not in the word")
-            print("Try again\n")
-            wrong_letter.append(user_choice)
-            print(f"Incorrect letter: {wrong_letter}")
+            wrong_letter = incorrect_letter(user_choice, wrong_letter)
             lives_remaining -= 1
-            if lives_remaining == 0:
-                game_over = True
-                print("You have lost all your lives, Game Over!\n")
-                print(f"The word you were looking for was: {computer_choice}")
+            game_over = check_if_game_over(lives_remaining, game_over)
+
         else:
             blanks = checked_user_choice
             print(f"You chose {user_choice}, That is correct!")
