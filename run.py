@@ -52,12 +52,7 @@ def play_game(computer_choice):
     blanks = hide_word(computer_choice)
 
 
-#     def correct_letters():
-#         for position in range(len(computer_choice)):
-#             letter = computer_choice[position]
-#   #           if user_choice ==#  letter:
-#                 blanks[p# osition] = letter
-#                 pri# nt(f"You chose {user_choice}, Tha# t is correct!")
+
 
 #     def incorrect_letter():
 #         lives_remainin# g = 6
@@ -74,8 +69,8 @@ def play_game(computer_choice):
 
     while game_over is False:
         user_choice = input("Please guess a letter: ")
-        checked_user_choice = check_user_choice(computer_choice, user_choice,
-        blanks)
+        checked_user_choice = check_user_choice(computer_choice,
+        user_choice, blanks)
         if checked_user_choice is False:
             print(f"You guessed {user_choice}, This letter is not in the word")
             print("Try again\n")
