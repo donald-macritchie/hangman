@@ -16,6 +16,10 @@ from difficulty import game_difficulty, generate_word
 # GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 # SHEET = GSPREAD_CLIENT.open('hangman_scores')
 
+def user_name():
+    name = input("Please enter your name: ")
+    return name
+
 
 def hide_word(computer_choice):
     blanks = []
@@ -110,6 +114,7 @@ if __name__ == "__main__":
     print("Guess the letters to complete the word")
     print("Try to guess the word in the least amount of guesses")
     print("Dont let the man hang!\n")
+    user_name()
     [computer_choice, difficulty] = game_difficulty()
     print(computer_choice)
     user_score = 0
