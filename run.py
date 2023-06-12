@@ -92,6 +92,7 @@ def play_again(user_score):
             print(computer_choice)
             play_game(computer_choice)
         elif continue_game == "no":
+            print(f"Your high score is {user_score} words")
             print("Thanks for playing. Game over")
             end_game = True
             
@@ -100,7 +101,7 @@ def play_again(user_score):
 
 def main():
     play_game(computer_choice)
-    play_again(user_score)
+    return play_again(user_score)
 
 
 
