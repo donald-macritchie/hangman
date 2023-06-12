@@ -81,9 +81,11 @@ def play_game(computer_choice):
 
 
 
-def play_again():
+def play_again(user_score):
     end_game = False
     while end_game is False:
+        user_score += 1
+        print(f"Your current score is {user_score} words")
         continue_game = input("Would you like to play again? Type 'Yes' or 'No': ").lower()
         if continue_game == "yes":
             computer_choice = generate_word(difficulty)
@@ -98,7 +100,7 @@ def play_again():
 
 def main():
     play_game(computer_choice)
-    play_again()
+    play_again(user_score)
 
 
 
@@ -109,6 +111,6 @@ if __name__ == "__main__":
     print("Dont let the man hang!\n")
     [computer_choice, difficulty] = game_difficulty()
     print(computer_choice)
-    # user_score = 0
+    user_score = 0
     main()
 
