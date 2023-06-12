@@ -85,10 +85,14 @@ def play_again():
     end_game = False
     while end_game is False:
         continue_game = input("Would you like to play again? Type 'Yes' or 'No': ").lower()
-        if continue_game == "Yes" or "Y":
+        if continue_game == "yes":
             computer_choice = generate_word(difficulty)
             print(computer_choice)
             play_game(computer_choice)
+        elif continue_game == "no":
+            print("Thanks for playing. Game over")
+            end_game = True
+            
 
 
 
