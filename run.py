@@ -1,5 +1,5 @@
-import gspread
-from google.oauth2.service_account import Credentials
+# import gspread
+# from google.oauth2.service_account import Credentials
 from hangman_words import words
 import random
 from hangman_images import hangman_lives
@@ -81,10 +81,21 @@ def play_game(computer_choice):
 
 
 
+def play_again():
+    end_game = False
+    while end_game is False:
+        continue_game = input("Would you like to play again? Type 'Yes' or 'No': ").lower()
+        if continue_game == "Yes" or "Y":
+            computer_choice = generate_word(difficulty)
+            print(computer_choice)
+            play_game(computer_choice)
+
+
+
 def main():
-    # game_difficulty()
     play_game(computer_choice)
-    # score(user_score)
+    play_again()
+
 
 
 if __name__ == "__main__":
