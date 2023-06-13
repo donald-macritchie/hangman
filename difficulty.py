@@ -29,5 +29,3 @@ def game_difficulty():
         print("Invalid difficulty choice, please try again.\n")
         game_difficulty()
     return [generate_word(user_difficulty), user_difficulty]
-
-
