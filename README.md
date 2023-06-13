@@ -18,3 +18,8 @@ In the tradintional hangman style, users are given visual cues which will show h
  - As a user, I want to be able to store my high score.
 
 
+## Features
+
+### Opening Monologue
+
+When the user starts the game, they are greeted with an openinig monologue. 
