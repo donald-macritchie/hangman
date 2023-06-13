@@ -9,4 +9,12 @@ In the tradintional hangman style, users are given visual cues which will show h
 [View the live project here]()!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
+## User Experience (UX)
+
+ - As a user, I want to be able to play the traditional wordgame hangman.
+ - As a user, I want to be to myself and select from a variety of difficulty levels.
+ - As a user, I want to be able to see how close I am to solving the word.
+ - As a user, I want to be able to see how close I am from losing the game. 
+ - As a user, I want to be able to store my high score.
+
 
