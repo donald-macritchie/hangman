@@ -40,7 +40,7 @@ def incorrect_letter(user_choice, wrong_letter):
     wrong_letter.append(user_choice)
     print(f"Incorrect letters: {wrong_letter}")
     return wrong_letter
-   
+
 
 def check_if_game_over(lives_remaining, game_over):
     if lives_remaining == 0:
@@ -59,7 +59,7 @@ def play_game(computer_choice):
     while game_over is False:
         user_choice = input("Please guess a letter: ")
         checked_user_choice = check_user_choice(computer_choice,
-        user_choice, blanks)
+          user_choice, blanks)
         if checked_user_choice is False:
             wrong_letter = incorrect_letter(user_choice, wrong_letter)
             lives_remaining -= 1
@@ -67,13 +67,12 @@ def play_game(computer_choice):
         else:
             blanks = checked_user_choice
             print(f"You chose {user_choice}, That is correct!")
-            
         print(blanks)
 
         if "_" not in blanks:
             game_over = True
-            print("You have guessed all the correct letter!")
-            print(f"The completed word is {computer_choice}")
+            print("You have guessed all the correct letter!/n")
+            print(f"The completed word is '{computer_choice}'.\n")
 
         print(hangman_lives[lives_remaining])
 
@@ -81,13 +80,12 @@ def play_game(computer_choice):
             print(f"You have {lives_remaining} lives remaining \n")
 
 
-
 def play_again(user_score):
     end_game = False
     while end_game is False:
         user_score += 1
         print(f"Your current score is {user_score} words")
-        continue_game = input("Would you like to play again? Type 'Yes' or 'No': ").lower()
+        continue_game = input("Would you like to play again? Type 'Yes' or 'No':").lower()
         if continue_game == "yes":
             computer_choice = generate_word(difficulty)
             print(computer_choice)
@@ -97,8 +95,6 @@ def play_again(user_score):
             print("Thanks for playing. Game over")
             end_game = True
     return user_score
-     
-            
 
 
 def update_highscores(user_score):
@@ -118,7 +114,6 @@ def main():
     play_game(computer_choice)
     play_again(user_score)
     update_highscores(user_score)
-
 
 
 if __name__ == "__main__":
