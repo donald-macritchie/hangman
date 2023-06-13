@@ -16,10 +16,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman_scores')
 
-def user_name():
-    name = input("Please enter your name: ")
-    return name
-
 
 def hide_word(computer_choice):
     blanks = []
@@ -99,25 +95,28 @@ def play_again(user_score):
             print(f"Your high score is {user_score} words")
             print("Thanks for playing. Game over")
             end_game = True
+    return user_score
+     
             
 
 
-def update_highscores():
+def update_highscores(user_score):
     """
     User will input username to push to highscore worksheet
     """
-    name = user_name()
-    print(f"Hi {name}, your highscore is (score)\n")
-    print("Updating highscore worksheet... \n")
-    high_score_worksheet = SHEET.worksheet("highest_score")
-    high_score_worksheet.append_row(name)
-    print("Highest scores worksheet updated successfully.\n")
 
+    name = input("Please enter your name: ")
+    print(f"Thanks for playing {name}, your highscore is {user_score}\n")
+    print("Updating highscore worksheet... \n")
+    # high_score_worksheet = SHEET.worksheet("highest_score")
+    # high_score_worksheet.append_row([name])
+    # print("Highest scores worksheet updated successfully.\n")
 
 
 def main():
     play_game(computer_choice)
-    return play_again(user_score)
+    play_again(user_score)
+    update_highscores(user_score)
 
 
 
@@ -126,10 +125,7 @@ if __name__ == "__main__":
     print("Guess the letters to complete the word")
     print("Try to guess the word in the least amount of guesses")
     print("Dont let the man hang!\n")
-    user_name()
     [computer_choice, difficulty] = game_difficulty()
     print(computer_choice)
     user_score = 0
     main()
-    # update_highscores()
-
