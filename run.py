@@ -1,20 +1,20 @@
-# import gspread
-# from google.oauth2.service_account import Credentials
+import gspread
+from google.oauth2.service_account import Credentials
 from hangman_words import words
 import random
 from hangman_images import hangman_lives
 from difficulty import game_difficulty, generate_word
 
-# SCOPE = [
-#     "https://www.googleapis.com/auth/spreadsheets",
-#     "https://www.googleapis.com/auth/drive.file",
-#     "https://www.googleapis.com/auth/drive"
-#     ]
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
 
-# CREDS = Credentials.from_service_account_file('creds.json')
-# SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-# GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-# SHEET = GSPREAD_CLIENT.open('hangman_scores')
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('hangman_scores')
 
 def user_name():
     name = input("Please enter your name: ")
@@ -102,6 +102,18 @@ def play_again(user_score):
             
 
 
+def update_highscores():
+    """
+    User will input username to push to highscore worksheet
+    """
+    name = user_name()
+    print(f"Hi {name}, your highscore is (score)\n")
+    print("Updating highscore worksheet... \n")
+    high_score_worksheet = SHEET.worksheet("highest_score")
+    high_score_worksheet.append_row(name)
+    print("Highest scores worksheet updated successfully.\n")
+
+
 
 def main():
     play_game(computer_choice)
@@ -119,4 +131,5 @@ if __name__ == "__main__":
     print(computer_choice)
     user_score = 0
     main()
+    # update_highscores()
 
