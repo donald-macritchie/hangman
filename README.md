@@ -33,5 +33,21 @@ After the opening monologue, the user will be asked to select the difficulty the
 
 ![This is a screenshot of the difficulty selection](./assets/screenshots/difficulty_choice.png)
 
+Difficulty choices
+
+EASY
+- If the user selects "easy", they will be move on to play with randomly selected words with four letters or less
+
+MEDIUM
+- If the user selects "medium", they will move on to play  with randomly selected words with 7 letters or less
+
+HARD
+- If the user selects "hard", they will move on to play  with randomly selected words with 10 letters or less
+
+
+Users have been given this difficulty choice so they can feel like they are being challenged, not only against themsleves but also against others who play. 
+
+
+
 
 
