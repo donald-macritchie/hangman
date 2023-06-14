@@ -58,7 +58,7 @@ def play_game(computer_choice):
 
     while game_over is False:
         print(blanks)
-        user_choice = input("Please guess a letter: ")
+        user_choice = input("Please guess a letter: ").lower()
         checked_user_choice = check_user_choice(computer_choice,
           user_choice, blanks)
         if checked_user_choice is False:
