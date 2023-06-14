@@ -75,3 +75,23 @@ The user will also see displayed a list with the incorrectly guessed letter so t
 The hangman image is displayed with its first body part and another message stating how many lives the user has remaining. 
 
 From here the user is prompted to make their next attempt. 
+
+If the user keeps guessing incorrectly, The same messages and images will be display until they lose all their lives. 
+
+![This is a screen shot of 4 lives remaining](./assets/screenshots/wrong_letter_four.png)
+
+![This is a screen shot of 3 lives remaining](./assets/screenshots/wrong_letter_three.png)
+
+![This is a screen shot of 2 lives remaining](./assets/screenshots/wrong_letter_two.png)
+
+![This is a screen shot of 1 lives remaining](./assets/screenshots/wrong_letter_one.png)
+
+## Losing the Game
+
+ - If the user gets the stage in the game where they have incorrectly guessed letters, that they lose all their lives, the game will end.
+
+![This is a screenshot of game over](./assets/screenshots/wrong_letter_game_over.png)
+
+- The user will be presented with a message stating that they have lost all their lives and the game is over.
+- The user will also be presented with the completed word they were trying to guess 
+- The final image of the hangman with all its body parts is displayed. 
