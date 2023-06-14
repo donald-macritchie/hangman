@@ -121,3 +121,13 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 
 - This will continue until the user decides to end the game or until they lose all their lives on an attemped solve. 
 
+## Storing points
+
+- Upon a user voluntarily ending the game or losing the game, they will then be prompted to input their name. 
+
+![This is a screenshot of the user prompt to enter their name](./assets/screenshots/enter_name.png)
+
+- Once their name is entered into the terminal, Their name and highscore will be posted into a google sheets document via an API. 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+

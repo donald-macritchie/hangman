@@ -25,7 +25,7 @@ def game_difficulty():
     print("Please select a difficulty.")
 
     user_difficulty = input("Type: 'easy', 'medium' or 'hard': \n").lower()
-    if user_difficulty != 'easy' and 'medium' and 'hard':
+    if user_difficulty != 'easy' and user_difficulty != 'medium' and user_difficulty != 'hard':
         print("Invalid difficulty choice, please try again.\n")
         game_difficulty()
     return [generate_word(user_difficulty), user_difficulty]
