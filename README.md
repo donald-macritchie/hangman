@@ -48,6 +48,17 @@ HARD
 Users have been given this difficulty choice so they can feel like they are being challenged, not only against themsleves but also against others who play. 
 
 
+### Letter Selection
+
+Following on from the difficulty selection, The user will be prompted to start guessing letters. Presented before the user input, is the unknown random word that has been blanked out. This gives the user an indiction of how many letters are in the word. 
+
+![This is a screen shot of the letter selection](./assets/screenshots/letter_choice.png)
 
 
+### Correctly guessed letters
 
+Once the user has input their choice, they will receive feedback on whether or not the letter they have guessed is correct. 
+
+![This is a screenshot of a correctly guessed letter](./assets/screenshots/correct_letter.png)
+
+If the user has guessed correctly, They are presented with a message stating that they have guessed correctly. The correct letter replaces the blank space and the classic hangman drawing is displayed along with how many lives they have remaining. From here the user will be prompted for their next guess. 
