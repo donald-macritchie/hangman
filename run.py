@@ -72,8 +72,8 @@ def play_game(computer_choice):
 
         if "_" not in blanks:
             game_over = True
-            print("You have guessed all the correct letter!/n")
-            print(f"The completed word is '{computer_choice}'.\n")
+            print("You have guessed all the correct letter!")
+            print(f"The completed word is '{computer_choice}'.")
 
         print(hangman_lives[lives_remaining])
 

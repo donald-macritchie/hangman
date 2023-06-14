@@ -95,3 +95,10 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 - The user will be presented with a message stating that they have lost all their lives and the game is over.
 - The user will also be presented with the completed word they were trying to guess 
 - The final image of the hangman with all its body parts is displayed. 
+
+
+## Winning the Game
+
+When the user has beenable to guess all the correct letters in the random word, they will have won the game.
+
+![This is a screenshot of the the user winnin the game](./assets/screenshots/)
