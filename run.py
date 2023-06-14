@@ -57,6 +57,7 @@ def play_game(computer_choice):
     blanks = hide_word(computer_choice)
 
     while game_over is False:
+        print(blanks)
         user_choice = input("Please guess a letter: ")
         checked_user_choice = check_user_choice(computer_choice,
           user_choice, blanks)
