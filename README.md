@@ -23,3 +23,15 @@ In the tradintional hangman style, users are given visual cues which will show h
 ### Opening Monologue
 
 When the user starts the game, they are greeted with an openinig monologue. 
+
+![This is a screen shot of the opening monologue](./assets/screenshots/opening_monologue.png)
+
+
+### Choosing the difficulty
+
+After the opening monologue, the user will be asked to select the difficulty they would like to play. 
+
+![This is a screenshot of the difficulty selection](./assets/screenshots/difficulty_choice.png)
+
+
+
