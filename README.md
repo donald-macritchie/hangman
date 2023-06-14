@@ -106,3 +106,18 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 - The terminal will diplay all the blank letters completed with a message to notify the user that they have guesed all the correct letters and the completed word is displayed. 
 
 
+## Accumulating Points
+
+- Classic Hangman is a fairly straightforward game to play and depending on each individual user, can be played and completed relatively quickly. 
+- To give the user a reason to keep playing after they have solved a word and staying engaged, a scoring system has been implemented to the game.
+
+![This is a screenshot of a user scoring 1 point](./assets/screenshots/score_one.png)
+
+- On completion of a word, the user will be awarded a point and asked to input if they wish to play again. 
+
+- If the user inputs "yes", another word will be randomly selected with a fresh set of lives and the hangman image starts at the beginning. 
+
+![This is a screenshot of a user scoring a second point](./assets/screenshots/score_two.png)
+
+- This will continue until the user decides to end the game or until they lose all their lives on an attemped solve. 
+
