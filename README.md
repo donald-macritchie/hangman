@@ -99,6 +99,10 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 
 ## Winning the Game
 
-When the user has beenable to guess all the correct letters in the random word, they will have won the game.
+- When the user has been able to guess all the correct letters in the random word, they will have won the game.
 
-![This is a screenshot of the the user winnin the game](./assets/screenshots/)
+![This is a screenshot of the the user winnin the game](./assets/screenshots/winning_the_game.png)
+
+- The terminal will diplay all the blank letters completed with a message to notify the user that they have guesed all the correct letters and the completed word is displayed. 
+
+
