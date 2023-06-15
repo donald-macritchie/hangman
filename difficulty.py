@@ -3,6 +3,11 @@ import random
 
 
 def generate_word(user_difficulty):
+    """
+    Generates a randomly selected word based on 
+    the users choice in game_difficulty().
+    The random word is returned to the main game in run.py
+    """
     if user_difficulty == "easy":
         easy_words = [word for word in words if len(word) <= 4]
         computer_choice = random.choice(easy_words)
@@ -18,6 +23,10 @@ def generate_word(user_difficulty):
 
 
 def game_difficulty():
+    """
+    Asks the user to input their difficulty level,
+    their response is then passed into the generate_word() function
+    """
     print("Choose your difficulty level!\n")
     print("EASY - Words with 4 letters or less")
     print("MEDIUM - Words with 7 letters or less")

@@ -18,6 +18,12 @@ SHEET = GSPREAD_CLIENT.open('hangman_scores')
 
 
 def hide_word(computer_choice):
+    """
+    Will take the randomly generated word from generate_word()
+    in difficulty.py and replace each letter with an underscore,
+    so the user can only see how many letters are in the word.
+    """
+    
     blanks = []
     for letter in range(len(computer_choice)):
         blanks += "_"
@@ -25,6 +31,9 @@ def hide_word(computer_choice):
 
 
 def check_user_choice(computer_choice, user_choice, blanks):
+    """
+    Checks if the users guess is in the randomly selected word.
+    """
     if user_choice not in computer_choice:
         return False
     if user_choice in computer_choice:
@@ -35,6 +44,11 @@ def check_user_choice(computer_choice, user_choice, blanks):
 
 
 def incorrect_letter(user_choice, wrong_letter):
+    """
+    If an incorrect guess has been made,
+    the wrong letter will be appended to a new list
+    and displayed to the user
+    """
     print(f"You guessed {user_choice}, This letter is not in the word.")
     print("Try again\n")
     wrong_letter.append(user_choice)
@@ -43,6 +57,10 @@ def incorrect_letter(user_choice, wrong_letter):
 
 
 def check_if_game_over(lives_remaining, game_over):
+    """
+    checks if the user has run out of lives,
+    if so, the game is over.
+    """
     if lives_remaining == 0:
         game_over = True
         print("You have lost all your lives, Game Over!\n")
@@ -51,6 +69,12 @@ def check_if_game_over(lives_remaining, game_over):
 
 
 def play_game(computer_choice):
+    """
+    loops through the randomly selected word with each guessthe user makes.
+    sets condition for the completed word, ie all blanks removed.
+    prints ascii art to the terminal based on users input.
+
+    """
     game_over = False
     lives_remaining = 6
     wrong_letter = []
@@ -82,6 +106,10 @@ def play_game(computer_choice):
 
 
 def play_again(user_score):
+    """
+    allows user to play game again, looping 
+    back to play_game()
+    """
     end_game = False
     while end_game is False:
         user_score += 1
@@ -100,14 +128,22 @@ def play_again(user_score):
 
 def update_highscores(user_score):
     """
-    User will input username to push to highscore worksheet
+    Takes user's name and score and updates the 
+    google sheet with the new data
     """
 
+    # User enters their name
     name = input("Please enter your name: ")
     print(f"Thanks for playing {name}, your highscore is {user_score}\n")
     print("Updating highscore worksheet... \n")
+    # users name is appended to googlesheet
     # high_score_worksheet = SHEET.worksheet("highest_score")
     # high_score_worksheet.append_row([name])
+
+    # Users difficulty is identified
+
+    # Users score is appended to difficulty column
+
     # print("Highest scores worksheet updated successfully.\n")
 
 
@@ -125,4 +161,4 @@ if __name__ == "__main__":
     [computer_choice, difficulty] = game_difficulty()
     print(computer_choice)
     user_score = 0
-    main()
+    # main()
