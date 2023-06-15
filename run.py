@@ -23,7 +23,7 @@ def hide_word(computer_choice):
     in difficulty.py and replace each letter with an underscore,
     so the user can only see how many letters are in the word.
     """
-    
+
     blanks = []
     for letter in range(len(computer_choice)):
         blanks += "_"
@@ -107,7 +107,7 @@ def play_game(computer_choice):
 
 def play_again(user_score):
     """
-    allows user to play game again, looping 
+    allows user to play game again, looping
     back to play_game()
     """
     end_game = False
@@ -128,7 +128,7 @@ def play_again(user_score):
 
 def update_highscores(user_score):
     """
-    Takes user's name and score and updates the 
+    Takes user's name and score and updates the
     google sheet with the new data
     """
 
