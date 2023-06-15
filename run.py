@@ -123,22 +123,29 @@ def play_again(user_score):
             print(f"Your high score is {user_score} words")
             print("Thanks for playing. Game over")
             end_game = True
-    return user_score
+        return user_score
 
 
-def update_highscores(user_score):
+
+def update_highscores():
     """
     Takes user's name and score and updates the
     google sheet with the new data
     """
-
+    final_score = 1
     # User enters their name
     name = input("Please enter your name: ")
-    print(f"Thanks for playing {name}, your highscore is {user_score}\n")
+    print(f"Thanks for playing {name}, your highscore is {final_score}\n")
     print("Updating highscore worksheet... \n")
     # users name is appended to googlesheet
-    # high_score_worksheet = SHEET.worksheet("highest_score")
-    # high_score_worksheet.append_row([name])
+    high_score_worksheet = SHEET.worksheet("highest_score")
+    high_score_worksheet.append_row([name, " ", " ", final_score])
+    # if user_level == "easy":
+    #     high_score_worksheet.append_row([name, final_score, " ", " "])
+    # elif user_level == "medium":
+    #     high_score_worksheet.append_row([name, " ", final_score, " "])
+    # elif user_level == "hard":
+    #     high_score_worksheet.append_row([name, " ", " ", final_score])
 
     # Users difficulty is identified
 
@@ -148,9 +155,9 @@ def update_highscores(user_score):
 
 
 def main():
-    play_game(computer_choice)
-    play_again(user_score)
-    update_highscores(user_score)
+    # play_game(computer_choice)
+    # play_again(user_score)
+    update_highscores()
 
 
 if __name__ == "__main__":
@@ -161,4 +168,4 @@ if __name__ == "__main__":
     [computer_choice, difficulty] = game_difficulty()
     print(computer_choice)
     user_score = 0
-    # main()
+    main()

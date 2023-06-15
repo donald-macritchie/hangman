@@ -4,7 +4,7 @@ import random
 
 def generate_word(user_difficulty):
     """
-    Generates a randomly selected word based on 
+    Generates a randomly selected word based on
     the users choice in game_difficulty().
     The random word is returned to the main game in run.py
     """
