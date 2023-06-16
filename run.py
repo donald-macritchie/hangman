@@ -89,8 +89,12 @@ def play_game(computer_choice):
 
     while game_over is False:
         print(blanks)
-        user_choice = input("Please guess a letter: ").lower()
-        input_valid = validate_input(user_choice, ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'])
+        input_valid = False
+        while input_valid is False:
+            user_choice = input("Please guess a letter: ").lower()
+            input_valid = validate_input(user_choice, ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'])
+            if input_valid is False:
+                print("Only letters are valid, please try again")
         checked_user_choice = check_user_choice(computer_choice,
           user_choice, blanks)
         if checked_user_choice is False:
