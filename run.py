@@ -15,6 +15,8 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman_scores')
+only_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
 
 
 def hide_word(computer_choice):
@@ -88,7 +90,7 @@ def play_game(computer_choice):
         input_valid = False
         while input_valid is False:
             user_choice = input("Please guess a letter: ").lower()
-            input_valid = validate_input(user_choice, ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'])
+            input_valid = validate_input(user_choice, only_letters)
             if input_valid is False:
                 print("Only letters are valid, please try again")
         checked_user_choice = check_user_choice(computer_choice,
@@ -167,9 +169,9 @@ def update_highscores():
 
 
 def main():
-    play_game(computer_choice)
-    play_again(user_score)
-    # update_highscores()
+    # play_game(computer_choice)
+    # play_again(user_score)
+    update_highscores()
 
 
 if __name__ == "__main__":

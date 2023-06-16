@@ -46,7 +46,4 @@ def game_difficulty():
         input_valid = validate_input(user_difficulty, ["easy", "medium", "hard"])
         if input_valid is False:
             print("Invalid difficulty choice, please try again.\n")
-    # if user_difficulty != 'easy' and user_difficulty != 'medium' and user_difficulty != 'hard':
-
-        # game_difficulty()
     return [generate_word(user_difficulty), user_difficulty]
