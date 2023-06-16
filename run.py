@@ -15,6 +15,7 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman_scores')
+
 only_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
@@ -147,25 +148,32 @@ def update_highscores():
     google sheet with the new data
     """
     final_score = 1
-    user_level = user_difficulty
+
     # User enters their name
-    name = input("Please enter your name: ")
+    is_valid = False
+    while is_valid is False:
+        name = input("Please enter your name: ")
+        if len(name) >= 3:
+            is_valid = True
+        else:
+            print("Enter at least three letters. ")
+
     print(f"Thanks for playing {name}, your final is {final_score}\n")
     print("Updating highscore worksheet... \n")
     # users name is appended to googlesheet
     high_score_worksheet = SHEET.worksheet("highest_score")
-    if user_level == "easy":
+    if difficulty == "easy":
         high_score_worksheet.append_row([name, final_score, " ", " "])
-    elif user_level == "medium":
+    elif difficulty == "medium":
         high_score_worksheet.append_row([name, " ", final_score, " "])
-    elif user_level == "hard":
+    elif difficulty == "hard":
         high_score_worksheet.append_row([name, " ", " ", final_score])
 
     # Users difficulty is identified
 
     # Users score is appended to difficulty column
 
-    # print("Highest scores worksheet updated successfully.\n")
+    print("Highest scores worksheet updated successfully.\n")
 
 
 def main():
