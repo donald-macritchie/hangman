@@ -3,7 +3,7 @@ from google.oauth2.service_account import Credentials
 from hangman_words import words
 import random
 from hangman_images import hangman_lives
-from difficulty import game_difficulty, generate_word
+from difficulty import game_difficulty, generate_word, validate_input
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -30,11 +30,7 @@ def hide_word(computer_choice):
     return blanks
 
 
-def validate_input(input, valid_choices):
-    if input.lower() in valid_choices:
-        return True
-    else:
-        return False
+
 
 
 def check_user_choice(computer_choice, user_choice, blanks):
