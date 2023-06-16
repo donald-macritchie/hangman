@@ -126,8 +126,12 @@ def play_again(user_score):
     while end_game is False:
         user_score += 1
         print(f"Your current score is {user_score} words")
-        continue_game = input("Would you like to play again? Type 'Yes' or 'No':").lower()
-        is_input_valid = validate_input(continue_game, ['yes', 'no', 'y', 'n'])
+        is_input_valid = False
+        while is_input_valid is False:
+            continue_game = input("Would you like to play again? Type 'Yes' or 'No':").lower()
+            is_input_valid = validate_input(continue_game, ['yes', 'no', 'y', 'n'])
+            if is_input_valid is False:
+                print("Invalid input, please enter 'yes' or 'no'.")
         if continue_game == "yes":
             computer_choice = generate_word(difficulty)
             print(computer_choice)
