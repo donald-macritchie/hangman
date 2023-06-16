@@ -30,6 +30,13 @@ def hide_word(computer_choice):
     return blanks
 
 
+def validate_input(input, valid_choices):
+    if input.lower() in valid_choices:
+        return True
+    else:
+        return False
+
+
 def check_user_choice(computer_choice, user_choice, blanks):
     """
     Checks if the users guess is in the randomly selected word.
@@ -83,6 +90,7 @@ def play_game(computer_choice):
     while game_over is False:
         print(blanks)
         user_choice = input("Please guess a letter: ").lower()
+        input_valid = validate_input(user_choice, ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'])
         checked_user_choice = check_user_choice(computer_choice,
           user_choice, blanks)
         if checked_user_choice is False:
@@ -120,11 +128,10 @@ def play_again(user_score):
             print(computer_choice)
             play_game(computer_choice)
         elif continue_game == "no":
-            print(f"Your high score is {user_score} words")
+            print(f"Your  is {user_score} words")
             print("Thanks for playing. Game over")
             end_game = True
-        return user_score
-
+            return user_score
 
 
 def update_highscores():
@@ -133,19 +140,19 @@ def update_highscores():
     google sheet with the new data
     """
     final_score = 1
+    user_level = user_difficulty
     # User enters their name
     name = input("Please enter your name: ")
-    print(f"Thanks for playing {name}, your highscore is {final_score}\n")
+    print(f"Thanks for playing {name}, your final is {final_score}\n")
     print("Updating highscore worksheet... \n")
     # users name is appended to googlesheet
     high_score_worksheet = SHEET.worksheet("highest_score")
-    high_score_worksheet.append_row([name, " ", " ", final_score])
-    # if user_level == "easy":
-    #     high_score_worksheet.append_row([name, final_score, " ", " "])
-    # elif user_level == "medium":
-    #     high_score_worksheet.append_row([name, " ", final_score, " "])
-    # elif user_level == "hard":
-    #     high_score_worksheet.append_row([name, " ", " ", final_score])
+    if user_level == "easy":
+        high_score_worksheet.append_row([name, final_score, " ", " "])
+    elif user_level == "medium":
+        high_score_worksheet.append_row([name, " ", final_score, " "])
+    elif user_level == "hard":
+        high_score_worksheet.append_row([name, " ", " ", final_score])
 
     # Users difficulty is identified
 
@@ -155,9 +162,9 @@ def update_highscores():
 
 
 def main():
-    # play_game(computer_choice)
-    # play_again(user_score)
-    update_highscores()
+    play_game(computer_choice)
+    play_again(user_score)
+    # update_highscores()
 
 
 if __name__ == "__main__":
