@@ -17,7 +17,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman_scores')
 
 only_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
+username = ""
 
 
 def hide_word(computer_choice):
@@ -142,12 +142,23 @@ def play_again(user_score):
             return user_score
 
 
+def get_username():
+    is_valid = False
+    while is_valid is False:
+        username = input("Pleae eneter your name: ")
+        if len(username) >= 3:
+            is_valid = True
+        else:
+            print("Enter at least three letters.")
+    return username
+
+
 def update_highscores():
     """
     Takes user's name and score and updates the
     google sheet with the new data
     """
-    final_score = 1
+
 
     # User enters their name
     is_valid = False
@@ -168,10 +179,6 @@ def update_highscores():
         high_score_worksheet.append_row([name, " ", final_score, " "])
     elif difficulty == "hard":
         high_score_worksheet.append_row([name, " ", " ", final_score])
-
-    # Users difficulty is identified
-
-    # Users score is appended to difficulty column
 
     print("Highest scores worksheet updated successfully.\n")
 
