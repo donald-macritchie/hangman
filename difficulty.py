@@ -1,6 +1,7 @@
 from hangman_words import words
 import random
 
+used_words = []
 
 def generate_word(user_difficulty):
     """
@@ -9,16 +10,19 @@ def generate_word(user_difficulty):
     The random word is returned to the main game in run.py
     """
     if user_difficulty == "easy":
-        easy_words = [word for word in words if len(word) <= 4]
+        easy_words = [word for word in words if len(word) <= 4 and word not in used_words]
         computer_choice = random.choice(easy_words)
+        used_words.append(computer_choice)
         return computer_choice
     elif user_difficulty == 'medium':
-        medium_words = [word for word in words if len(word) <= 7]
+        medium_words = [word for word in words if len(word) <= 7 and word not in used_words]
         computer_choice = random.choice(medium_words)
+        used_words.append(computer_choice)
         return computer_choice
     elif user_difficulty == 'hard':
-        hard_words = [word for word in words if len(word) <= 10]
+        hard_words = [word for word in words if len(word) <= 10 and word not in used_words]
         computer_choice = random.choice(hard_words)
+        used_words.append(computer_choice)
         return computer_choice
 
 
