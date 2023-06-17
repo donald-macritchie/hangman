@@ -29,7 +29,6 @@ def validate_input(input, valid_choices):
         return False
 
 
-
 def game_difficulty():
     """
     Asks the user to input their difficulty level,
@@ -43,7 +42,8 @@ def game_difficulty():
     input_valid = False
     while input_valid is False:
         user_difficulty = input("Type: 'easy', 'medium' or 'hard': \n").lower()
-        input_valid = validate_input(user_difficulty, ["easy", "medium", "hard"])
+        input_valid = validate_input
+        (user_difficulty, ["easy", "medium", "hard"])
         if input_valid is False:
             print("Invalid difficulty choice, please try again.\n")
     return [generate_word(user_difficulty), user_difficulty]

@@ -85,7 +85,6 @@ def play_game(computer_choice, user_score):
     lives_remaining = 6
     wrong_letter = []
     blanks = hide_word(computer_choice)
-    # user_score = 0
 
     while game_over is False:
         print(blanks)
@@ -139,10 +138,11 @@ def play_again(user_score):
         if continue_game == "yes":
             computer_choice = generate_word(difficulty)
             print(computer_choice)
-            play_game(computer_choice, user_score)
+            user_score = play_game(computer_choice, user_score)
         elif continue_game == "no":
             print("Thanks for playing. Game over")
             end_game = True
+    return user_score
 
 
 def get_username():
