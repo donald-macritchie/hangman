@@ -26,6 +26,10 @@ When the user starts the game, they are greeted with an openinig monologue.
 
 ![This is a screen shot of the opening monologue](./assets/screenshots/opening_monologue.png)
 
+## Enter your username
+After the opening monolgue, users will be asked to enter their username. 
+This user name is then stored for use later on when updating the scores to an external API
+
 
 ## Choosing the difficulty
 
