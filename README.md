@@ -115,7 +115,7 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 - Classic Hangman is a fairly straightforward game to play and depending on each individual user, can be played and completed relatively quickly. 
 - To give the user a reason to keep playing after they have solved a word and staying engaged, a scoring system has been implemented to the game.
 
-![This is a screenshot of a user scoring 1 point](./assets/screenshots/score_one.png)
+![This is a screenshot of a user being awarded 1 point](./assets/screenshots/one_point.png)
 
 - On completion of a word, the user will be awarded a point and asked to input if they wish to play again. 
 
@@ -129,7 +129,7 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 
 - Upon a user voluntarily ending the game or losing the game, they will then be prompted to input their name. 
 
-![This is a screenshot of the user prompt to enter their name](./assets/screenshots/enter_name.png)
+![This is a screenshot of the user prompt to enter their name](./assets/screenshots/two_points.png)
 
 - Once their name is entered into the terminal, Their name and highscore will be posted into a google sheets document via an API. 
 
