@@ -16,7 +16,9 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman_scores')
 
-only_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+only_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+                'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
+                'x', 'y', 'z']
 username = ""
 user_score = 0
 
@@ -32,9 +34,6 @@ def hide_word(computer_choice):
     for letter in range(len(computer_choice)):
         blanks += "_"
     return blanks
-
-
-
 
 
 def check_user_choice(computer_choice, user_choice, blanks):
@@ -88,7 +87,6 @@ def play_game(computer_choice, user_score):
     blanks = hide_word(computer_choice)
     # user_score = 0
 
-
     while game_over is False:
         print(blanks)
         input_valid = False
@@ -98,7 +96,7 @@ def play_game(computer_choice, user_score):
             if input_valid is False:
                 print("Only letters are valid, please try again")
         checked_user_choice = check_user_choice(computer_choice,
-          user_choice, blanks)
+                                                user_choice, blanks)
         if checked_user_choice is False:
             wrong_letter = incorrect_letter(user_choice, wrong_letter)
             lives_remaining -= 1
@@ -106,7 +104,7 @@ def play_game(computer_choice, user_score):
         else:
             blanks = checked_user_choice
             print(f"You chose {user_choice}, That is correct!")
-            
+
         print(blanks)
 
         if "_" not in blanks:
@@ -122,6 +120,7 @@ def play_game(computer_choice, user_score):
     update_highscores(user_score)
     return user_score
 
+
 def play_again(user_score):
     """
     allows user to play game again, looping
@@ -131,8 +130,10 @@ def play_again(user_score):
     while end_game is False:
         is_input_valid = False
         while is_input_valid is False:
-            continue_game = input("Would you like to play again? Type 'Yes' or 'No':").lower()
-            is_input_valid = validate_input(continue_game, ['yes', 'no', 'y', 'n'])
+            print("Would you like to play again?")
+            continue_game = input("Type 'Yes' or 'No': ").lower()
+            is_input_valid = validate_input(continue_game,
+                                            ['yes', 'no', 'y', 'n'])
             if is_input_valid is False:
                 print("Invalid input, please enter 'yes' or 'no'.")
         if continue_game == "yes":
@@ -142,7 +143,6 @@ def play_again(user_score):
         elif continue_game == "no":
             print("Thanks for playing. Game over")
             end_game = True
-
 
 
 def get_username():
@@ -162,7 +162,6 @@ def update_highscores(final_score):
     google sheet with the new data
     """
 
-
     print(f"Thanks for playing {username}, your score is {final_score}\n")
     print("Updating highscore worksheet... \n")
     # users name is appended to googlesheet
@@ -181,7 +180,6 @@ def main():
     user_score = 0
     user_score = play_game(computer_choice, user_score)
     play_again(user_score)
-
 
 
 if __name__ == "__main__":
