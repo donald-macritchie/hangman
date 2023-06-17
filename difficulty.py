@@ -23,6 +23,9 @@ def generate_word(user_difficulty):
 
 
 def validate_input(input, valid_choices):
+    """
+    Validates the users input
+    """
     if input.lower() in valid_choices:
         return True
     else:

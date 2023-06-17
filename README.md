@@ -153,7 +153,7 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 
 I have manually tested the project by doing the following:
 
-- Passed the code through a PEP8 linter and confirmed there are no problems.
+- Passed the code through a [PEP8 linter](https://pep8ci.herokuapp.com/#) and confirmed there are no problems.
 - I have given invalid inputs, such as non alphabetical charecters. eg numbers and special charecters
 - tested the game functionality through my local terminal and the Heroku Terminal  
 
