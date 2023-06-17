@@ -6,7 +6,7 @@ Hangman is a traditional wordgame in which users are given an unknown, randomly 
 
 In the tradintional hangman style, users are given visual cues which will show how close the man is to hanging. 
 
-[View the live project here]()!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[View the live project here](https://hangmangamedonald-e8eff857df0e.herokuapp.com/)
 
 
 ## User Experience (UX)
