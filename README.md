@@ -12,7 +12,7 @@ In the tradintional hangman style, users are given visual cues which will show h
 ## User Experience (UX)
 
  - As a user, I want to be able to play the traditional wordgame hangman.
- - As a user, I want to be to myself and select from a variety of difficulty levels.
+ - As a user, I want to be to challenge myself and select from a variety of difficulty levels.
  - As a user, I want to be able to see how close I am to solving the word.
  - As a user, I want to be able to see how close I am from losing the game. 
  - As a user, I want to be able to store my high score.
@@ -33,7 +33,7 @@ This user name is then stored for use later on when updating the scores to an ex
 
 ### Choosing the difficulty
 
-After the opening monologue, the user will be asked to select the difficulty they would like to play. 
+After entering their username, the user will be asked to select the difficulty they would like to play. 
 
 ![This is a screenshot of the difficulty selection](./assets/screenshots/difficulty_choice.png)
 
@@ -70,7 +70,7 @@ If the user has guessed correctly, They are presented with a message stating tha
 
 ### Incorrectly guessed letters
 
-If the user has guessed incorrectly, They will be presented with a message stating what letter they got wrong and that it is not not in the randomly selected word. 
+If the user has guessed incorrectly, They will be presented with a message stating what letter they got wrong and that it is not in the randomly selected word. 
 
 ![this is a screenshot of an incorrectly guessed letter](./assets/screenshots/wrong_letter_five.png)
 
@@ -92,7 +92,7 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 
 ### Losing the Game
 
- - If the user gets the stage in the game where they have incorrectly guessed letters, that they lose all their lives, the game will end.
+ - If the user gets to the stage in the game where they have incorrectly guessed enough letters, that they lose all their lives, the game will end.
 
 ![This is a screenshot of game over](./assets/screenshots/wrong_letter_game_over.png)
 
@@ -127,15 +127,15 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 
 ### Storing points
 
-- Upon a user voluntarily ending the game or losing the game, they will then be prompted to input their name. 
+- Upon a user voluntarily ending the game or losing the game, their name and highscore will be posted into a google sheets document via an API. 
 
 ![This is a screenshot of the user prompt to enter their name](./assets/screenshots/two_points.png)
 
-- Once their name is entered into the terminal, Their name and highscore will be posted into a google sheets document via an API. 
+
 
 ### Updating the Score Sheet
 
-- Like any game where user compete against one another, users will want to see their high score compared to other users. 
+- Like any game, users will be curious to know how well they have done in comparison to others.
 
 - To acheive this, a google sheets API has been implemented. 
 - After each word has been solved, the Username and score is sent to an external google sheet where they can see their score according to which difficulty they have played. 
@@ -155,23 +155,23 @@ I have manually tested the project by doing the following:
 
 - Passed the code through a [PEP8 linter](https://pep8ci.herokuapp.com/#) and confirmed there are no problems.
 - I have given invalid inputs, such as non alphabetical charecters. eg numbers and special charecters
-- tested the game functionality through my local terminal and the Heroku Terminal  
+- I have tested the game functionality through my local terminal and the Heroku Terminal  
 
 ## Bugs
 
 ### Solved Bugs
 
 1. 
-- Within the play_again function, when the user was asked if they wantewd to play again, a "no" response would not end the game.
+- Within the play_again function, when the user was asked if they wanted to play again, a "no" response would not end the game.
 
 ![This is a screen shot of a bug in the code](./assets/screenshots/bug_one.png)
 
-- What was happening in the continue_game variable was, python was reading the condition as "if continue game = "N", or, "No" = True". 
-- To fix this, first the conditions were put into lowercase and "N" was removed. 
+- What was happening in the continue_game variable was, python was reading the condition as "if continue_game = "N", or, "No" = True". 
+- To fix this, the conditions were put into lowercase and "N" was removed. 
 
 2.
-- When iimplementing the score functionality, I had incremented the score to add one point after each letter had been solved.
-- As I wanted the points to accumulate after each word was sloved, I moved this peice of code to be read after the word had been completed.
+- When implementing the score functionality, I had incremented the score to add one point after each letter had been solved.
+- As I wanted the points to accumulate after each word was solved, I moved this peice of code to be read after the word had been completed.
 
 ![This is a screen shot of the fix for the second bug in the code](./assets/screenshots/bug_two.png)
 
@@ -190,7 +190,7 @@ The steps for deployment are as follows:
 - In the settings tab:
     - Reveal config vars
         - Enter "CREDS" into KEY field
-        - Enter the contents of the creds.json file into teh VALUE field
+        - Enter the contents of the creds.json file into the VALUE field
         - Click "Add"
     - In a new config vars
         - Enter "PORT" into the KEY field
@@ -208,7 +208,6 @@ The steps for deployment are as follows:
     - Select GitHub as the deploment method
         - Once connected, search for the repository name
         - Click "connect" to link up the repository code with Heroku
-        - Under
     - In Manual deployment
         - Click "Deploy Branch"
         - This will display the deployment logs as the app is built
@@ -221,7 +220,7 @@ The steps for deployment are as follows:
 - The games core fucntionality was inspired by the Python hangman game created by Angela Yu
     - [Angela Yu's Hangman game](https://replit.com/@appbrewery/Day-7-Hangman-Final)
 
-- The ascii art to illustrate teh different stages of the lives remaining, was taken from Chris Horton's github repository
+- The ascii art to illustrate the different stages of the lives remaining, was taken from Chris Horton's github repository
     - [Link to Chris Horton's hangman ascii art](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c
 )
 
