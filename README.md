@@ -133,5 +133,11 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 
 - Once their name is entered into the terminal, Their name and highscore will be posted into a google sheets document via an API. 
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## Updating the Score Sheet
 
+- Like any game where user compete against one another, users will want to see their high score compared to other users. 
+
+- To acheive this, a google sheets API has been implemented. 
+- After each word has been solved, the Username and score is sent to an external google sheet where they can see their score according to which difficulty they have played. 
+
+![This is a screenshot of the googlesheet score board](./assets/screenshots/score_board.png)
