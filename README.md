@@ -154,5 +154,23 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 I have manually tested the project by doing the following:
 
 - Passed the code through a PEP8 linter and confirmed there are no problems.
-- I have given inalid inputs, such as non alphabetical charecters. eg numbers and special charecters
+- I have given invalid inputs, such as non alphabetical charecters. eg numbers and special charecters
 - tested the game functionality through my local terminal and the Heroku Terminal  
+
+## Bugs
+
+### Solved Bugs
+
+1. 
+- Within the play_again function, when the user was asked if they wantewd to play again, a "no" response would not end the game.
+
+![This is a screen shot of a bug in the code](./assets/screenshots/bug_one.png)
+
+- What was happening in the continue_game variable was, python was reading the condition as "if continue game = "N", or, "No" = True". 
+- To fix this, first the conditions were put into lowercase and "N" was removed. 
+
+2.
+- When iimplementing the score functionality, I had incremented the score to add one point after each letter had been solved.
+- As I wanted the points to accumulate after each word was sloved, I moved this peice of code to be read after the word had been completed.
+
+![This is a screen shot of the fix for the second bug in the code](./assets/screenshots/bug_two.png)
