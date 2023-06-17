@@ -177,7 +177,40 @@ I have manually tested the project by doing the following:
 
 ### Unsolved Bugs
 
-- The only bug left within the game is when updating the score to teh googlesheet, the score is updated after each word is solved. 
+- The only bug left within the game is when updating the score to the googlesheet, the score is updated after each word is solved. 
 - I would like to have the score only update once all points have been accumulated. 
 - This will be a future feature I would like to implement
 
+## Deployment
+The project was deployed using Code Institute's mock terminal for Heroku
+
+The steps for deployment are as follows:
+
+- Create a new Heroku app
+- In the settings tab:
+    - Reveal config vars
+        - Enter "CREDS" into KEY field
+        - Enter the contents of the creds.json file into teh VALUE field
+        - Click "Add"
+    - In a new config vars
+        - Enter "PORT" into the KEY field
+        - Enter "8000" into the VALUE field
+        - Click "Add"
+    - In the buidpacks section we need to add python and node.js
+        - Click "Add buildpack"
+        - Select "python"
+        - Click "Add buildpack"
+        - Click "Add buildpack"
+        - Select "node.js"
+        - Click "Add buildpack"
+        - Ensure the build packs have python on the top and node.js undernearth. 
+- In the deploy tab:
+    - Select GitHub as the deploment method
+        - Once connected, search for the repository name
+        - Click "connect" to link up the repository code with Heroku
+        - Under
+    - In Manual deployment
+        - Click "Deploy Branch"
+        - This will display the deployment logs as the app is built
+        - Once ready, click "View", which will take the user to the deployed link. 
+- In the Deployed link, Click "Run Program" to start the program.
