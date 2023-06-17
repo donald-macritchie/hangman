@@ -150,6 +150,12 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 ![This is a screenshot of the game over message](./assets/screenshots/game_over.png)
 
 
+## Features left to implement
+
+- Currently, the randomly generated word from the words list in Hangman_words.py, once used in a round of the game, can be used again. 
+- Ideally, I would like to implement a feature in which once a word has been solved, it can no longer be generated until a new game starts.
+
+
 ## Testing
 
 I have manually tested the project by doing the following:
