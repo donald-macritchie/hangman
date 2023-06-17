@@ -60,7 +60,7 @@ def incorrect_letter(user_choice, wrong_letter):
     return wrong_letter
 
 
-def check_if_game_over(lives_remaining, game_over):
+def check_if_game_over(lives_remaining, game_over, computer_choice):
     """
     checks if the user has run out of lives,
     if so, the game is over.
@@ -101,7 +101,7 @@ def play_game(computer_choice, user_score):
         if not checked_user_choice:
             wrong_letter = incorrect_letter(user_choice, wrong_letter)
             lives_remaining -= 1
-            game_over = check_if_game_over(lives_remaining, game_over)
+            game_over = check_if_game_over(lives_remaining, game_over, computer_choice)
         else:
             blanks = checked_user_choice
             print(f"You chose {user_choice}, That is correct!")
