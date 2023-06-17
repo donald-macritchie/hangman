@@ -127,7 +127,6 @@ def play_again(user_score):
     """
     end_game = False
     while end_game is False:
-        print(f"Your current score is {user_score} words")
         is_input_valid = False
         while is_input_valid is False:
             continue_game = input("Would you like to play again? Type 'Yes' or 'No':").lower()
@@ -181,7 +180,7 @@ def update_highscores(final_score):
 def main():
     play_game(computer_choice)
     play_again(user_score)
-    update_highscores(user_score)
+
 
 
 if __name__ == "__main__":
