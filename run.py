@@ -75,7 +75,7 @@ def check_if_game_over(lives_remaining, game_over):
     return game_over
 
 
-def play_game(computer_choice):
+def play_game(computer_choice, user_score):
     """
     loops through the randomly selected word with each guessthe user makes.
     sets condition for the completed word, ie all blanks removed.
@@ -86,7 +86,7 @@ def play_game(computer_choice):
     lives_remaining = 6
     wrong_letter = []
     blanks = hide_word(computer_choice)
-    user_score = 0
+    # user_score = 0
 
 
     while game_over is False:
@@ -106,21 +106,23 @@ def play_game(computer_choice):
         else:
             blanks = checked_user_choice
             print(f"You chose {user_choice}, That is correct!")
-            user_score = user_score + 1
+            
         print(blanks)
 
         if "_" not in blanks:
             game_over = True
             print("You have guessed all the correct letter!")
             print(f"The completed word is '{computer_choice}'.")
+            user_score = user_score + 1
 
         print(hangman_lives[lives_remaining])
 
         if lives_remaining != 0:
             print(f"You have {lives_remaining} lives remaining \n")
     update_highscores(user_score)
+    return user_score
 
-def play_again():
+def play_again(user_score):
     """
     allows user to play game again, looping
     back to play_game()
@@ -136,9 +138,8 @@ def play_again():
         if continue_game == "yes":
             computer_choice = generate_word(difficulty)
             print(computer_choice)
-            play_game(computer_choice)
+            play_game(computer_choice, user_score)
         elif continue_game == "no":
-            print(f"Your  is {user_score} words")
             print("Thanks for playing. Game over")
             end_game = True
 
@@ -162,7 +163,7 @@ def update_highscores(final_score):
     """
 
 
-    print(f"Thanks for playing {username}, your final is {final_score}\n")
+    print(f"Thanks for playing {username}, your score is {final_score}\n")
     print("Updating highscore worksheet... \n")
     # users name is appended to googlesheet
     high_score_worksheet = SHEET.worksheet("highest_score")
@@ -177,7 +178,8 @@ def update_highscores(final_score):
 
 
 def main():
-    play_game(computer_choice)
+    user_score = 0
+    user_score = play_game(computer_choice, user_score)
     play_again(user_score)
 
 
