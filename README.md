@@ -141,3 +141,9 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 - After each word has been solved, the Username and score is sent to an external google sheet where they can see their score according to which difficulty they have played. 
 
 ![This is a screenshot of the googlesheet score board](./assets/screenshots/score_board.png)
+
+## Game Over
+
+- The user will receive a message in the terminal stating that the game is over. 
+
+![This is a screenshot of the game over message](./assets/screenshots/game_over.png)
