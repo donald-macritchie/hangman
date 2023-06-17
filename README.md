@@ -214,3 +214,16 @@ The steps for deployment are as follows:
         - This will display the deployment logs as the app is built
         - Once ready, click "View", which will take the user to the deployed link. 
 - In the Deployed link, Click "Run Program" to start the program.
+
+
+## Credits
+
+- The games core fucntionality was inspired by the Python hangman game created by Angela Yu
+    - [Angela Yu's Hangman game](https://replit.com/@appbrewery/Day-7-Hangman-Final)
+
+- The ascii art to illustrate teh different stages of the lives remaining, was taken from Chris Horton's github repository
+    - [Link to Chris Horton's hangman ascii art](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c
+)
+
+- This readme file was written with inspiration from Matt Rudge's battleships game readme.md file displayed in the Code Institute Diploma in Full Stack Software Development course, under the "Portfolio 3: Project Submission Section"
+- This README.md File was also created using the [Code Institute README.md template](https://github.com/Code-Institute-Solutions/readme-template) and using tips from the "Creating a README" file created by [Kera Cudmore](https://github.com/kera-cudmore
