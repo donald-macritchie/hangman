@@ -174,3 +174,10 @@ I have manually tested the project by doing the following:
 - As I wanted the points to accumulate after each word was sloved, I moved this peice of code to be read after the word had been completed.
 
 ![This is a screen shot of the fix for the second bug in the code](./assets/screenshots/bug_two.png)
+
+### Unsolved Bugs
+
+- The only bug left within the game is when updating the score to teh googlesheet, the score is updated after each word is solved. 
+- I would like to have the score only update once all points have been accumulated. 
+- This will be a future feature I would like to implement
+
