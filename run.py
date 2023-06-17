@@ -120,7 +120,7 @@ def play_game(computer_choice):
             print(f"You have {lives_remaining} lives remaining \n")
     update_highscores(user_score)
 
-def play_again(user_score):
+def play_again():
     """
     allows user to play game again, looping
     back to play_game()
@@ -137,12 +137,11 @@ def play_again(user_score):
             computer_choice = generate_word(difficulty)
             print(computer_choice)
             play_game(computer_choice)
-            user_score = 0
         elif continue_game == "no":
             print(f"Your  is {user_score} words")
             print("Thanks for playing. Game over")
             end_game = True
-            return user_score
+
 
 
 def get_username():
