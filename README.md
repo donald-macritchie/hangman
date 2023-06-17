@@ -26,18 +26,18 @@ When the user starts the game, they are greeted with an openinig monologue.
 
 ![This is a screen shot of the opening monologue](./assets/screenshots/opening_monologue.png)
 
-## Enter your username
+### Enter your username
 After the opening monolgue, users will be asked to enter their username. 
 This user name is then stored for use later on when updating the scores to an external API
 
 
-## Choosing the difficulty
+### Choosing the difficulty
 
 After the opening monologue, the user will be asked to select the difficulty they would like to play. 
 
 ![This is a screenshot of the difficulty selection](./assets/screenshots/difficulty_choice.png)
 
-Difficulty choices
+#### Difficulty choices
 
 EASY
 - If the user selects "easy", they will be move on to play with randomly selected words with four letters or less
@@ -52,14 +52,14 @@ HARD
 Users have been given this difficulty choice so they can feel like they are being challenged, not only against themsleves but also against others who play. 
 
 
-## Letter Selection
+### Letter Selection
 
 Following on from the difficulty selection, The user will be prompted to start guessing letters. Presented before the user input, is the unknown random word that has been blanked out. This gives the user an indiction of how many letters are in the word. 
 
 ![This is a screen shot of the letter selection](./assets/screenshots/letter_choice.png)
 
 
-## Correctly guessed letters
+### Correctly guessed letters
 
 Once the user has input their choice, they will receive feedback on whether or not the letter they have guessed is correct. 
 
@@ -68,7 +68,7 @@ Once the user has input their choice, they will receive feedback on whether or n
 If the user has guessed correctly, They are presented with a message stating that they have guessed correctly. The correct letter replaces the blank space and the classic hangman drawing is displayed along with how many lives they have remaining. From here the user will be prompted for their next guess. 
 
 
-## Incorrectly guessed letters
+### Incorrectly guessed letters
 
 If the user has guessed incorrectly, They will be presented with a message stating what letter they got wrong and that it is not not in the randomly selected word. 
 
@@ -90,7 +90,7 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 
 ![This is a screen shot of 1 lives remaining](./assets/screenshots/wrong_letter_one.png)
 
-## Losing the Game
+### Losing the Game
 
  - If the user gets the stage in the game where they have incorrectly guessed letters, that they lose all their lives, the game will end.
 
@@ -101,7 +101,7 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 - The final image of the hangman with all its body parts is displayed. 
 
 
-## Winning the Game
+### Winning the Game
 
 - When the user has been able to guess all the correct letters in the random word, they will have won the game.
 
@@ -110,7 +110,7 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 - The terminal will diplay all the blank letters completed with a message to notify the user that they have guesed all the correct letters and the completed word is displayed. 
 
 
-## Accumulating Points
+### Accumulating Points
 
 - Classic Hangman is a fairly straightforward game to play and depending on each individual user, can be played and completed relatively quickly. 
 - To give the user a reason to keep playing after they have solved a word and staying engaged, a scoring system has been implemented to the game.
@@ -125,7 +125,7 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 
 - This will continue until the user decides to end the game or until they lose all their lives on an attemped solve. 
 
-## Storing points
+### Storing points
 
 - Upon a user voluntarily ending the game or losing the game, they will then be prompted to input their name. 
 
@@ -133,7 +133,7 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 
 - Once their name is entered into the terminal, Their name and highscore will be posted into a google sheets document via an API. 
 
-## Updating the Score Sheet
+### Updating the Score Sheet
 
 - Like any game where user compete against one another, users will want to see their high score compared to other users. 
 
@@ -142,8 +142,17 @@ If the user keeps guessing incorrectly, The same messages and images will be dis
 
 ![This is a screenshot of the googlesheet score board](./assets/screenshots/score_board.png)
 
-## Game Over
+### Game Over
 
 - The user will receive a message in the terminal stating that the game is over. 
 
 ![This is a screenshot of the game over message](./assets/screenshots/game_over.png)
+
+
+## Testing
+
+I have manually tested the project by doing the following:
+
+- Passed the code through a PEP8 linter and confirmed there are no problems.
+- I have given inalid inputs, such as non alphabetical charecters. eg numbers and special charecters
+- tested the game functionality through my local terminal and the Heroku Terminal  
