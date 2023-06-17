@@ -18,6 +18,7 @@ SHEET = GSPREAD_CLIENT.open('hangman_scores')
 
 only_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 username = ""
+user_score = 0
 
 
 def hide_word(computer_choice):
@@ -85,6 +86,8 @@ def play_game(computer_choice):
     lives_remaining = 6
     wrong_letter = []
     blanks = hide_word(computer_choice)
+    user_score = 0
+
 
     while game_over is False:
         print(blanks)
@@ -103,6 +106,7 @@ def play_game(computer_choice):
         else:
             blanks = checked_user_choice
             print(f"You chose {user_choice}, That is correct!")
+            user_score = user_score + 1
         print(blanks)
 
         if "_" not in blanks:
@@ -114,7 +118,7 @@ def play_game(computer_choice):
 
         if lives_remaining != 0:
             print(f"You have {lives_remaining} lives remaining \n")
-
+    update_highscores(user_score)
 
 def play_again(user_score):
     """
@@ -123,7 +127,6 @@ def play_again(user_score):
     """
     end_game = False
     while end_game is False:
-        user_score += 1
         print(f"Your current score is {user_score} words")
         is_input_valid = False
         while is_input_valid is False:
@@ -135,6 +138,7 @@ def play_again(user_score):
             computer_choice = generate_word(difficulty)
             print(computer_choice)
             play_game(computer_choice)
+            user_score = 0
         elif continue_game == "no":
             print(f"Your  is {user_score} words")
             print("Thanks for playing. Game over")
@@ -145,7 +149,7 @@ def play_again(user_score):
 def get_username():
     is_valid = False
     while is_valid is False:
-        username = input("Pleae eneter your name: ")
+        username = input("Please enter your username: ")
         if len(username) >= 3:
             is_valid = True
         else:
@@ -153,40 +157,31 @@ def get_username():
     return username
 
 
-def update_highscores():
+def update_highscores(final_score):
     """
     Takes user's name and score and updates the
     google sheet with the new data
     """
 
 
-    # User enters their name
-    is_valid = False
-    while is_valid is False:
-        name = input("Please enter your name: ")
-        if len(name) >= 3:
-            is_valid = True
-        else:
-            print("Enter at least three letters. ")
-
-    print(f"Thanks for playing {name}, your final is {final_score}\n")
+    print(f"Thanks for playing {username}, your final is {final_score}\n")
     print("Updating highscore worksheet... \n")
     # users name is appended to googlesheet
     high_score_worksheet = SHEET.worksheet("highest_score")
     if difficulty == "easy":
-        high_score_worksheet.append_row([name, final_score, " ", " "])
+        high_score_worksheet.append_row([username, final_score, " ", " "])
     elif difficulty == "medium":
-        high_score_worksheet.append_row([name, " ", final_score, " "])
+        high_score_worksheet.append_row([username, " ", final_score, " "])
     elif difficulty == "hard":
-        high_score_worksheet.append_row([name, " ", " ", final_score])
+        high_score_worksheet.append_row([username, " ", " ", final_score])
 
     print("Highest scores worksheet updated successfully.\n")
 
 
 def main():
-    # play_game(computer_choice)
-    # play_again(user_score)
-    update_highscores()
+    play_game(computer_choice)
+    play_again(user_score)
+    update_highscores(user_score)
 
 
 if __name__ == "__main__":
@@ -194,7 +189,8 @@ if __name__ == "__main__":
     print("Guess the letters to complete the word")
     print("Try to guess the word in the least amount of guesses")
     print("Dont let the man hang!\n")
+    username = get_username()
     [computer_choice, difficulty] = game_difficulty()
     print(computer_choice)
-    user_score = 0
+
     main()
