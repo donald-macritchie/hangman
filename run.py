@@ -76,27 +76,31 @@ def check_if_game_over(lives_remaining, game_over):
 
 def play_game(computer_choice, user_score):
     """
-    loops through the randomly selected word with each guessthe user makes.
-    sets condition for the completed word, ie all blanks removed.
-    prints ascii art to the terminal based on users input.
-
+    Loops through the randomly selected word with each guess the user makes.
+    Sets a condition for the completed word, i.e., all blanks removed.
+    Prints ASCII art to the terminal based on the user's input.
     """
+
     game_over = False
     lives_remaining = 6
     wrong_letter = []
     blanks = hide_word(computer_choice)
 
-    while game_over is False:
+    while not game_over:
         print(blanks)
         input_valid = False
-        while input_valid is False:
-            user_choice = input("Please guess a letter: ").lower()
-            input_valid = validate_input(user_choice, only_letters)
-            if input_valid is False:
-                print("Only letters are valid, please try again")
+        while not input_valid:
+            try:
+                user_choice = input("Please guess a letter: ").lower()
+                if not user_choice.isalpha():
+                    raise ValueError("Only letters are valid, please try again")
+                input_valid = True
+            except ValueError as e:
+                print(str(e))
+
         checked_user_choice = check_user_choice(computer_choice,
                                                 user_choice, blanks)
-        if checked_user_choice is False:
+        if not checked_user_choice:
             wrong_letter = incorrect_letter(user_choice, wrong_letter)
             lives_remaining -= 1
             game_over = check_if_game_over(lives_remaining, game_over)
@@ -108,14 +112,15 @@ def play_game(computer_choice, user_score):
 
         if "_" not in blanks:
             game_over = True
-            print("You have guessed all the correct letter!")
+            print("You have guessed all the correct letters!")
             print(f"The completed word is '{computer_choice}'.")
-            user_score = user_score + 1
+            user_score += 1
 
         print(hangman_lives[lives_remaining])
 
         if lives_remaining != 0:
-            print(f"You have {lives_remaining} lives remaining \n")
+            print(f"You have {lives_remaining} lives remaining\n")
+
     update_highscores(user_score)
     return user_score
 
