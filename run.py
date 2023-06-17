@@ -146,6 +146,10 @@ def play_again(user_score):
 
 
 def get_username():
+    """
+    Asks for the users username and
+     check if it is valid
+     """
     is_valid = False
     while is_valid is False:
         username = input("Please enter your username: ")
@@ -177,6 +181,9 @@ def update_highscores(final_score):
 
 
 def main():
+    """
+    Runs the core game functionality
+    """
     user_score = 0
     user_score = play_game(computer_choice, user_score)
     play_again(user_score)
